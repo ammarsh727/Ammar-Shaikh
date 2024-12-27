@@ -148,9 +148,3 @@ The diagram outlines:
 
 This diagram aids in the development process by ensuring clarity and alignment with the object-oriented design principles of **abstraction**, **encapsulation**, and **inheritance**.
 
-## Class Diagram
-
-Below is the class diagram for the Perfume Collection Manager project:
-
-![Class Diagram](docs/Perfume_Collection_Class_Diagram.png)
-
