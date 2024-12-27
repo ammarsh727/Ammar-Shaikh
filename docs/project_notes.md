@@ -152,5 +152,5 @@ This diagram aids in the development process by ensuring clarity and alignment w
 
 Below is the class diagram for the Perfume Collection Manager project:
 
-![Class Diagram](Perfume_Collection_Class_Diagram.png)
+![Class Diagram](docs/Perfume_Collection_Class_Diagram.png)
 
