@@ -1,65 +1,83 @@
+import ipywidgets as widgets
+from IPython.display import display
 from src.collection_manager import CollectionManager, Perfume
 
-def display_menu():
-    print("\nCollection Manager")
-    print("1. Add Perfume")
-    print("2. Edit Perfume")
-    print("3. Delete Perfume")
-    print("4. View Perfumes")
-    print("5. Exit")
+# Create global CollectionManager instance
+manager = CollectionManager()
 
-def main():
-    manager = CollectionManager()
+# Function to display perfumes
+def display_perfumes():
+    perfumes = manager.view_perfumes()
+    if perfumes:
+        for idx, perfume in enumerate(perfumes):
+            print(f"{idx + 1}. {perfume.name} - {perfume.brand}, {perfume.scent}, £{perfume.price}")
+    else:
+        print("No perfumes in collection.")
 
-    while True:
-        display_menu()
+# Functions to handle actions
+def add_perfume(_):
+    name = name_widget.value
+    brand = brand_widget.value
+    scent = scent_widget.value
+    price = float(price_widget.value)
+    perfume = Perfume(name, brand, scent, price)
+    manager.add_perfume(perfume)
+    print("Perfume added successfully!")
+    display_perfumes()
 
-        choice = input("Choose an option: ")
+def edit_perfume(_):
+    perfumes = manager.view_perfumes()
+    if not perfumes:
+        print("No perfumes to edit.")
+        return
 
-        if choice == '1':
-            name = input("Enter perfume name: ")
-            brand = input("Enter perfume brand: ")
-            scent = input("Enter perfume scent: ")
-            price = float(input("Enter perfume price: "))
-            perfume = Perfume(name, brand, scent, price)
-            manager.add_perfume(perfume)
-            print("Perfume added successfully!")
+    for idx, perfume in enumerate(perfumes):
+        print(f"{idx + 1}. {perfume.name} - {perfume.brand}")
 
-        elif choice == '2':
-            perfumes = manager.view_perfumes()
-            for idx, perfume in enumerate(perfumes):
-                print(f"{idx + 1}. {perfume.name} - {perfume.brand}")
-            index = int(input("Choose a perfume to edit: ")) - 1
-            name = input("Enter new name (or leave blank to keep current): ")
-            brand = input("Enter new brand (or leave blank to keep current): ")
-            scent = input("Enter new scent (or leave blank to keep current): ")
-            price = input("Enter new price (or leave blank to keep current): ")
-            price = float(price) if price else None
-            manager.edit_perfume(index, name, brand, scent, price)
-            print("Perfume updated successfully!")
+    index = int(edit_index_widget.value) - 1
+    name = name_widget.value or None
+    brand = brand_widget.value or None
+    scent = scent_widget.value or None
+    price = price_widget.value or None
+    manager.edit_perfume(index, name, brand, scent, price)
+    print("Perfume updated successfully!")
+    display_perfumes()
 
-        elif choice == '3':
-            perfumes = manager.view_perfumes()
-            for idx, perfume in enumerate(perfumes):
-                print(f"{idx + 1}. {perfume.name} - {perfume.brand}")
-            index = int(input("Choose a perfume to delete: ")) - 1
-            manager.delete_perfume(index)
-            print("Perfume deleted successfully!")
+def delete_perfume(_):
+    perfumes = manager.view_perfumes()
+    if not perfumes:
+        print("No perfumes to delete.")
+        return
 
-        elif choice == '4':
-            perfumes = manager.view_perfumes()
-            if perfumes:
-                for perfume in perfumes:
-                    print(f"{perfume.name} - {perfume.brand}, {perfume.scent}, ${perfume.price}")
-            else:
-                print("No perfumes in collection.")
+    for idx, perfume in enumerate(perfumes):
+        print(f"{idx + 1}. {perfume.name} - {perfume.brand}")
 
-        elif choice == '5':
-            print("Exiting the application...")
-            break
+    index = int(delete_index_widget.value) - 1
+    manager.delete_perfume(index)
+    print("Perfume deleted successfully!")
+    display_perfumes()
 
-        else:
-            print("Invalid option, please try again.")
+def view_perfumes(_):
+    display_perfumes()
 
-if __name__ == '__main__':
-    main()
+# Widgets for the user interface
+name_widget = widgets.Text(description='Name:')
+brand_widget = widgets.Text(description='Brand:')
+scent_widget = widgets.Text(description='Scent:')
+price_widget = widgets.FloatText(description='Price:')
+edit_index_widget = widgets.IntText(description='Edit Index:')
+delete_index_widget = widgets.IntText(description='Delete Index:')
+add_button = widgets.Button(description="Add Perfume")
+edit_button = widgets.Button(description="Edit Perfume")
+delete_button = widgets.Button(description="Delete Perfume")
+view_button = widgets.Button(description="View Perfumes")
+
+# Attach buttons to functions
+add_button.on_click(add_perfume)
+edit_button.on_click(edit_perfume)
+delete_button.on_click(delete_perfume)
+view_button.on_click(view_perfumes)
+
+# Display the interface
+display(name_widget, brand_widget, scent_widget, price_widget, add_button, edit_button, delete_button, view_button, edit_index_widget, delete_index_widget)
+
