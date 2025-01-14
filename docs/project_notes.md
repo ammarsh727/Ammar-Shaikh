@@ -20,11 +20,8 @@
 15. [Challenges and Solutions](#challenges-and-solutions)
 16. [Conclusion](#conclusion)
 17. 
-## Project Overview
-The **Collection Manager** is an application designed to help users manage their collection of perfumes. The application allows users to add, remove, edit, and view perfumes in their perfume collection. It offers a user-friendly interface for interacting with the data and organises perfumes based on various attributes such as name, brand, scent and price.
-
-**Objective:**  
-The goal of this project is to develop a fully functional collection manager that can perform CRUD (Create, Read, Update, Delete) operations on a collection of perfumes. The system will store data in a JSON file format, making it easy for users to manage their collection and retain data between sessions. In addition to this, it is important that the data is able to be visualised for the user.
+## Project Overview and objectives
+The goal of this project is to develop a fully functional collection manager that can perform CRUD (Create, Read, Update, Delete) operations on a collection of perfumes. The system will store data in a JSON file format, making it easy for users to manage their collection and retain data between sessions. In addition to this, it is important that the data is able to be visualised for the user. It organises perfumes based on various attributes such as name, brand, scent and price
 
 ## Objective and Purpose
 The primary purpose of this application is to:
@@ -105,13 +102,6 @@ User stories describe the features and functionalities of the application from t
 - **Tech-savviness:** Average  
 - **Needs:** Ammar has a growing perfume collection. He needs a simple application that allows him to add, edit, and remove perfumes easily. He is also interested in visualising the price distribution and the number of perfumes per brand.
 
-**Collection Details:**
-
-Collection size: 50+ perfumes
-Average monthly spend: £200
-Preferred brands: Chanel, Dior, Jo Malone
-Shopping habits: Mix of in-store and online purchases
-
 **Pain Points:**
 
 - Loses track of purchases across different retailers
@@ -132,13 +122,6 @@ Shopping habits: Mix of in-store and online purchases
 - **Tech-savviness:** Low  
 - **Needs:** Mark occasionally buys perfumes as gifts and needs a way to keep track of which perfumes he has bought for friends and family. He prefers something very easy to use but also appreciates a simple visualisation of how much his collection is worth.
 
-**Gift-Giving Patterns:**
-
-- Primary occasions: Birthdays, Christmas, Anniversaries
-- Average spend per gift: £75
-- Main recipients: Family members (spouse, sisters), colleagues
-- Shopping frequency: Quarterly
-
 **Pain Points:**
 
 - Difficulty remembering previous gifts given to each person
@@ -156,7 +139,6 @@ Shopping habits: Mix of in-store and online purchases
 ## Technologies Used
 ### 1. **Python**
    - Python will be used for the core logic, including the ability to add, edit, delete, and view perfumes. Python will also be used to generate visualisations.
-   - This is useful for several reasons including; an extensive library for data visualisation and manipulation, rich ecosystem of testing tools and strong community support.
 
 #### Key libraries used were:
 - **ipywidgets**: provides interactive UI elements in Jupyter environments
@@ -169,22 +151,8 @@ Shopping habits: Mix of in-store and online purchases
 ### 2. **JSON**
    - Perfume data will be stored in a JSON file (`perfumes.json`). This allows easy storage and retrieval of data. There are many compelling reasons it was selected. One of them was a readable format allowing for easier debugging. In addtion to this, it contains flexible schema enabling future extensions.
 
-#### Implementation includes:
-- Robust error handling for file operations
-- Data validation before storage
-- Automatic backup creation 
-
 ### 3. **Git and GitHub**
    - Git will be used for version control, and GitHub will be used for hosting the repository and collaboration.
-
-### 4. **Mermaid (for Markdown Diagrams)**
-   - Mermaid will be used for simple flowcharts, Gantt charts, or data flow diagrams directly in Markdown files, providing users with a visual overview of the project.
-
-### 5. **Matplotlib (for Python Visualisations)**
-   - These Python libraries will be used to generate advanced visualisations like pie charts, bar graphs, and histograms to represent perfume distribution, price ranges, and brand frequency.
-
-### 6. **Unit Testing (unittest)**
-   - The `unittest` framework will be used for testing the core functionalities of the application.
 
 ## Data Structure
 The perfume data will be stored as a list of dictionaries in JSON format, each dictionary representing a perfume. Each perfume object will contain attributes such as:
@@ -446,8 +414,7 @@ All tests passed successfully with an execution time of 0.027 seconds, demonstra
 The Perfume Collection Manager successfully achieves its main objectives of providing a user-friendly solution for managing personal perfume collections. The application delivers significant value to its target users through the implementation of key features and  attention to user needs.
 
 ### Key Achievements
-#### Core Functionality
-
+**Core Functionality**
 - Implemented complete CRUD operations for perfume management
 - Developed an intuitive user interface using interactive widgets
 - Established reliable data persistence through JSON storage
@@ -458,7 +425,6 @@ The Perfume Collection Manager successfully achieves its main objectives of prov
 - Enabled users to track spending patterns and collection composition
 
 **Technical Implementation**
--Achieved modular, maintainable code structure
 -Implemented comprehensive error handling
 -Established thorough testing procedures with 11 successful test cases
 
@@ -479,18 +445,12 @@ While the current implementation successfully meets its core requirements, sever
 
 **Feature Enhancements**
 - Implementation of search and filtering capabilities
-- Addition of perfume notes (top, middle, base) tracking
-- Integration with external perfume databases
-
-**Technical Improvements**
-- Development of a web-based interface
-- Implementation of user authentication
-- Addition of data backup functionality
 
 **User Experience Refinements**
 - Enhanced mobile responsiveness
 - Additional visualisation options
--  dashboard views
+- Dashboard views
+
 With room for future growth and enhancement, he Perfume Collection Manager represents a solid foundation for perfume collection management. Its current implementation successfully balances functionality with usability, providing a valuable tool for perfume enthusiasts and casual users also.
 
 
